@@ -30,4 +30,16 @@ void main() {
 
     expect(result, isA<BankStatement>());
   });
+
+  test("Should throw an DomainError if server return exeption", () async {
+    when(() => savingAccountsRepository.getAccountTransactions(any()))
+        .thenThrow(() => Exception());
+
+    final result = sut.call(faker.jwt.expired());
+
+    expect(
+      () => result,
+      throwsA(isA<DomainError>()),
+    );
+  });
 }
