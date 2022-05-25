@@ -15,7 +15,7 @@ void main() {
   setUp(() {
     currentAccountsRepository = CurrentAccountsRepositoryMock();
     sut = GetCurrentAccountsStatementUsecase(
-        bankStatementRepository: currentAccountsRepository);
+        currentAccountStatementRepository: currentAccountsRepository);
   });
 
   test("Sloud return a BankStatement", () async {

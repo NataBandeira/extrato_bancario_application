@@ -4,17 +4,17 @@ import '../repositories/repositories.dart';
 import './interfaces/interfaces.dart';
 
 class GetCurrentAccountsStatementUsecase extends GetBankStatementUsecase {
-  final BankStatementRepository _bankStatementRepository;
+  final BankStatementRepository _currentAccountStatementRepository;
 
   GetCurrentAccountsStatementUsecase({
-    required BankStatementRepository bankStatementRepository,
-  }) : _bankStatementRepository = bankStatementRepository;
+    required BankStatementRepository currentAccountStatementRepository,
+  }) : _currentAccountStatementRepository = currentAccountStatementRepository;
 
   @override
   Future call(String token) async {
     try {
-      final accountStatements =
-          await _bankStatementRepository.getAccountTransactions(token);
+      final accountStatements = await _currentAccountStatementRepository
+          .getAccountTransactions(token);
       return accountStatements;
     } catch (exeptions) {
       throw DomainError();
