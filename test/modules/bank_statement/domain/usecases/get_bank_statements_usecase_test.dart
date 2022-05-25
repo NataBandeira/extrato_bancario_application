@@ -1,4 +1,5 @@
 import 'package:extrato_bancario_application/app/module/bank_statement/domain/domain.dart';
+import 'package:extrato_bancario_application/app/module/bank_statement/domain/errors/errors.dart';
 import 'package:faker/faker.dart';
 
 import 'package:mocktail/mocktail.dart';
@@ -29,5 +30,17 @@ void main() {
     final result = await sut.call(faker.jwt.valid());
 
     expect(result, isA<BankStatement>());
+  });
+
+  test("Should throw an DomainError if server return exeption", () async {
+    when(() => currentAccountsRepository.getAccountTransactions(any()))
+        .thenThrow(() => Exception());
+
+    final result = sut.call(faker.jwt.expired());
+
+    expect(
+      () => result,
+      throwsA(isA<DomainError>()),
+    );
   });
 }

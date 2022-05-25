@@ -1,3 +1,5 @@
+import 'package:extrato_bancario_application/app/module/bank_statement/domain/errors/errors.dart';
+
 import '../repositories/repositories.dart';
 import './interfaces/interfaces.dart';
 
@@ -10,9 +12,12 @@ class GetCurrentAccountsStatementUsecase extends GetBankStatementUsecase {
 
   @override
   Future call(String token) async {
-    final accountStatements =
-        await _bankStatementRepository.getAccountTransactions(token);
-
-    return accountStatements;
+    try {
+      final accountStatements =
+          await _bankStatementRepository.getAccountTransactions(token);
+      return accountStatements;
+    } catch (exeptions) {
+      throw DomainError();
+    }
   }
 }
