@@ -1,1 +1,1 @@
-export './mocks/current_account_statement_mock.dart';
+export 'mocks/account_statement_mock.dart';

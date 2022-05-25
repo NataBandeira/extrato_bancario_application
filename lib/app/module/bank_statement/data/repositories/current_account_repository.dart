@@ -9,7 +9,8 @@ class CurrentAccountRepository extends BankStatementRepository {
 
   @override
   Future<BankStatement> getAccountTransactions(String token) async {
-    final currentAccountStatement = await _bankAccountSource.getTransactions(token: token);
+    final currentAccountStatement =
+        await _bankAccountSource.getTransactions(token: token);
     return currentAccountStatement;
   }
 }
