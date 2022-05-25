@@ -6,7 +6,7 @@ class BankTransactionsModel extends BankTransactions {
     String? description,
     String? identification,
     String? date,
-    int? value,
+    double? value,
     double? balanceAfterOperation,
     int? operation,
   }) : super(
@@ -15,7 +15,9 @@ class BankTransactionsModel extends BankTransactions {
             identification: identification,
             date: date,
             balanceAfterOperation: balanceAfterOperation,
-            operation: operation);
+            operation: operation,
+            value: value
+            );
 
   BankTransactionsModel.fromJson(Map<String, dynamic> json) {
     type = json['type'];
