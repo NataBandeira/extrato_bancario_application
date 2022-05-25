@@ -1,6 +1,6 @@
 import '../../data/data.dart';
 
-class ExternalCurrentAccountSource implements BankAccountSource {
+class ExternalSavingAccountSource implements BankAccountSource {
   @override
   Future<BankStatementModel> getTransactions({required String token}) async {
     return BankStatementModel(
