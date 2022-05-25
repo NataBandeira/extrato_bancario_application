@@ -6,7 +6,7 @@ class BankTransactions extends Equatable {
   String? identification;
   String? date;
   int? value;
-  int? balanceAfterOperation;
+  double? balanceAfterOperation;
   int? operation;
 
   BankTransactions(

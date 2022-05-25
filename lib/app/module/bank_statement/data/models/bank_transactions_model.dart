@@ -7,7 +7,7 @@ class BankTransactionsModel extends BankTransactions {
     String? identification,
     String? date,
     int? value,
-    int? balanceAfterOperation,
+    double? balanceAfterOperation,
     int? operation,
   }) : super(
             type: type,

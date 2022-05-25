@@ -1,5 +1,5 @@
-import 'package:extrato_bancario_application/app/module/bank_statement/domain/errors/errors.dart';
 
+import '../helpers/helpers.dart';
 import '../repositories/repositories.dart';
 import './interfaces/interfaces.dart';
 
