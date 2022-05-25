@@ -21,7 +21,7 @@ void main() {
     when(() => savingAccountsRepository.getAccountTransactions(any()))
         .thenAnswer((_) async {
       return BankStatement(
-        accountType: "Current accounts",
+        accountType: 013,
         balanceAvailable: 360.00,
       );
     });

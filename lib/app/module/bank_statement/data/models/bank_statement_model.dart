@@ -5,7 +5,7 @@ class BankStatementModel extends BankStatement {
   BankStatementModel(
       {double? balanceAvailable,
       String? lastUpdate,
-      String? accountType,
+      int? accountType,
       List<BankTransactionsModel>? bankTransactions})
       : super(
             balanceAvailable: balanceAvailable,
@@ -32,7 +32,7 @@ class BankStatementModel extends BankStatement {
     data['account_type'] = accountType;
     if (bankTransactions != null) {
       data['bank_transactions'] = bankTransactions!.map((v) {
-        final bankTransactions = v as BankStatementModel;
+        BankTransactionsModel bankTransactions = v as BankTransactionsModel;
         return bankTransactions.toJson();
       }).toList();
     }

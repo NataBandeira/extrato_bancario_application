@@ -1,9 +1,11 @@
+import 'package:equatable/equatable.dart';
+
 import 'entities.dart';
 
-class BankStatement {
+class BankStatement extends Equatable {
   double? balanceAvailable;
   String? lastUpdate;
-  String? accountType;
+  int? accountType;
   List<BankTransactions>? bankTransactions;
 
   BankStatement(
@@ -11,4 +13,7 @@ class BankStatement {
       this.lastUpdate,
       this.accountType,
       this.bankTransactions});
+
+  @override
+  List<Object?> get props => [balanceAvailable, lastUpdate, accountType];
 }
