@@ -1,11 +1,11 @@
 class BankTransactions {
-  String? type;
+  int? type;
   String? description;
   String? identification;
   String? date;
-  String? value;
-  String? balanceAfterOperation;
-  String? operation;
+  int? value;
+  int? balanceAfterOperation;
+  int? operation;
 
   BankTransactions(
       {this.type,
