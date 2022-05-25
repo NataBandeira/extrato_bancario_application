@@ -1,5 +1,5 @@
 import '../entities/entities.dart';
 
 abstract class BankStatementRepository {
-  Future<BankStatement> get();
+  Future<BankStatement> getAccountTransactions();
 }
