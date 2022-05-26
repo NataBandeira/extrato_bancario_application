@@ -1,6 +1,7 @@
-import 'package:extrato_bancario_application/app/module/bank_statement/domain/usecases/get_saving_account_statement_usecase.dart';
+import 'package:extrato_bancario_application/app/module/bank_statement/bank_statement_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'module/bank_statement/presentation/presentation.dart';
 import 'module/bank_statement/domain/domain.dart';
 import 'module/bank_statement/data/data.dart';
 import 'module/bank_statement/infra/infra.dart';
@@ -18,8 +19,16 @@ class AppModule extends Module {
             bankAccountSource: i<ExternalCurrentAccountSource>())),
         Bind.factory((i) => GetCurrentAccountsStatementUsecase(
             currentAccountStatementRepository: i<CurrentAccountRepository>())),
+        Bind.factory(
+          (i) => AccountStatementController(
+            getCurrentAccountStatement: i<GetCurrentAccountsStatementUsecase>(),
+            getSavingAccountStatement: i<GetSavingAccountStatementUsecase>(),
+          ),
+        )
       ];
 
   @override
-  List<ModularRoute> get routes => [];
+  List<ModularRoute> get routes => [
+        ModuleRoute('/', module: BankStatementModule()),
+      ];
 }
